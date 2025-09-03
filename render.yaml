@@ -1,4 +1,4 @@
-# 部署託管用: https://render.com/
+# 後端託管用: https://render.com/
 
 services:
   - type: web
