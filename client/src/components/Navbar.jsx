@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow p-4 flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/50 shadow-md p-4 flex justify-between items-center">
       {/* 圖片 + 標題 Link */}
       <Link to="/" className="flex items-center space-x-2"> 
         {/* 小圖示 */}
