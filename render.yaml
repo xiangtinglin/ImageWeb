@@ -20,7 +20,7 @@ services:
       - key: EMAIL_PASSWORD
         sync: false
 
-  - type: static_site
+  - type: static
     name: imageweb-client
     rootDir: client
     buildCommand: npm install && npm run build
