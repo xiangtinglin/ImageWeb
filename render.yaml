@@ -1,6 +1,5 @@
 # 部署託管用: https://render.com/
 
-# 部署託管用: https://render.com/
 services:
   - type: web
     name: imageweb-server
@@ -21,7 +20,7 @@ services:
       - key: EMAIL_PASSWORD
         sync: false
 
-  - type: static_site
+  - type: static
     name: imageweb-client
     rootDir: client
     buildCommand: npm install && npm run build
