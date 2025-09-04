@@ -10,7 +10,6 @@ const images = [
 
 const Home = () => {
   const navigate = useNavigate();
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // 自動切換圖片
@@ -24,8 +23,9 @@ const Home = () => {
   const handleClick = () => {
     navigate('/booking');
   };
+
   return (
-    <div className="p-8 text-center">
+    <div className="pt-20 p-8 text-center min-h-screen bg-white">
       <h1 className="text-4xl font-bold text-blue-800 mb-4">打造你的專屬形象</h1>
       <p className="text-lg text-gray-600 mb-8">穿搭、妝造、面試訓練，一站式形象升級！</p>
 
@@ -49,7 +49,6 @@ const Home = () => {
       >
         預約諮詢
       </button>
-      
     </div>
   );
 };
