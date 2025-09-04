@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 
 // ✅ 註冊信箱驗證
 async function sendVerificationEmail(to, token) {
-  const verificationLink = `http://localhost:3001/api/auth/verify?token=${token}`;
+  const verificationLink = `${FRONTEND_BASE_URL}/api/auth/verify?token=${token}`;
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
     to,
