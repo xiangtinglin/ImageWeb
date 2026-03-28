@@ -1,11 +1,8 @@
 # PR Agency Website (Full-Stack)
 
 ## 📌 專案簡介
-
 本專案為一個全端「形象改造服務網站」，提供使用者從註冊、登入、預約到帳戶管理的一站式體驗。
-
 系統採用 **React + Node.js + PostgreSQL（Supabase）** 架構，並整合 Email 驗證與密碼重設機制，具備完整的實務應用能力。
-
 ---
 
 ## 🌐 Deployment
