@@ -31,7 +31,7 @@ router.post('/register', async (req, res) => {
     res.status(201).json({ message: '註冊成功，請前往信箱完成驗證' });
   } catch (err) {
     console.error('註冊錯誤:', err);
-    res.status(500).json({ message: '伺服器錯誤' });
+    res.status(500).json({ message: 'Oops！目前Email服務遭拒請聯繫客服人員，謝謝！' });
   }
 });
 
@@ -55,7 +55,7 @@ router.get('/verify', async (req, res) => {
     res.redirect(`${FRONTEND_BASE_URL}/login?verified=true`); // ✅ 導回前端
   } catch (err) {
     console.error('驗證錯誤:', err);
-    res.status(500).send('伺服器錯誤');
+    res.status(500).send('Oops！目前Email服務遭拒請聯繫客服人員，謝謝！');
   }
 });
 
@@ -87,7 +87,7 @@ router.post('/resend', async (req, res) => {
     res.json({ message: '驗證信已重新寄出，請至信箱查收' });
   } catch (err) {
     console.error('重送驗證信錯誤:', err);
-    res.status(500).json({ message: '伺服器錯誤' });
+    res.status(500).json({ message: 'Oops！目前Email服務遭拒請聯繫客服人員，謝謝！' });
   }
 });
 
@@ -118,7 +118,7 @@ router.post('/login', async (req, res) => {
     res.json({ message: '登入成功', token });
   } catch (err) {
     console.error('登入錯誤:', err);
-    res.status(500).json({ message: '伺服器錯誤' });
+    res.status(500).json({ message: 'Oops！目前Email服務遭拒請聯繫客服人員，謝謝！' });
   }
 });
 
@@ -147,7 +147,7 @@ router.post('/forgot', async (req, res) => {
     res.json({ message: '重設密碼連結已寄出，請至信箱查收' });
   } catch (err) {
     console.error('忘記密碼錯誤:', err);
-    res.status(500).json({ message: '伺服器錯誤' });
+    res.status(500).json({ message: 'Oops！目前Email服務遭拒請聯繫客服人員，謝謝！' });
   }
 });
 
@@ -170,7 +170,7 @@ router.post('/reset', async (req, res) => {
     res.json({ message: '密碼已成功重設，請重新登入' });
   } catch (err) {
     console.error('重設密碼錯誤:', err);
-    res.status(500).json({ message: '伺服器錯誤' });
+    res.status(500).json({ message: 'Oops！目前Email服務遭拒請聯繫客服人員，謝謝！' });
   }
 });
 
