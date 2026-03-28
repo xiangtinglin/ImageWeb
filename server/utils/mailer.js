@@ -4,21 +4,20 @@ const FRONTEND_BASE_URL = process.env.FRONTEND_BASE_URL;
 // 🚀 核心修復
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, // 587 必須為 false
+  port: 587,               // 💡 587 通常比 465 容易穿透 Render 的防火牆
+  secure: false,           // 587 必須為 false
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD
   },
   tls: {
-    // 💡 關鍵：強制指定舊版加密協議，增加與雲端環境的相容性
-    ciphers: 'SSLv3',
-    rejectUnauthorized: false
+    // 🚀 關鍵：這行能強迫忽略證書鏈錯誤，這在雲端環境非常重要
+    rejectUnauthorized: false,
+    minVersion: "TLSv1.2"  // 強制使用較新的安全協議
   },
-  // 🚀 延長超時時間，給予雲端網路更多緩衝
-  connectionTimeout: 20000, 
-  greetingTimeout: 20000,
-  socketTimeout: 20000
+  connectionTimeout: 30000, // 💡 增加到 30 秒，給 Render 更多時間建立連線
+  greetingTimeout: 30000,
+  socketTimeout: 30000
 });
 
 // ✅ 註冊信箱驗證
