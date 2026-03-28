@@ -1,24 +1,24 @@
 const nodemailer = require('nodemailer');
 const FRONTEND_BASE_URL = process.env.FRONTEND_BASE_URL;
 
-// 🚀 核心修復：使用 Port 465 並加入 TLS 容錯
+// 🚀 核心修復
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
-  port: 465,               // 強制使用 SSL
-  secure: true,            // 搭配 Port 465 必須為 true
+  port: 587,
+  secure: false, // 587 必須為 false
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD // ⚠️ 請確認 Render 環境變數 Key 叫這個名字
+    pass: process.env.EMAIL_PASSWORD
   },
   tls: {
-    // ✅ 解決 Render 與 Gmail 之間的驗證問題
+    // 💡 關鍵：強制指定舊版加密協議，增加與雲端環境的相容性
+    ciphers: 'SSLv3',
     rejectUnauthorized: false
   },
-  // ⚡ 防止前端一直 Loading 的關鍵：設定 10 秒超時
-  connectionTimeout: 10000, 
-  greetingTimeout: 10000,
-  socketTimeout: 10000,
-  pool: true // 使用連線池提升效率
+  // 🚀 延長超時時間，給予雲端網路更多緩衝
+  connectionTimeout: 20000, 
+  greetingTimeout: 20000,
+  socketTimeout: 20000
 });
 
 // ✅ 註冊信箱驗證
