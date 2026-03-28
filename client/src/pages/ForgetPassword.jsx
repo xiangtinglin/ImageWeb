@@ -18,7 +18,7 @@ const ForgetPassword = () => {
       const res = await axios.post(`${API_BASE}/api/auth/forgot`, { email });
       setMessage(res.data.message);
     } catch (err) {
-      setMessage(err.response?.data?.message || '發送失敗');
+      setMessage(err.response?.data?.message || 'Oops！目前Email服務遭拒請聯繫客服人員，謝謝！');
     } finally {
       setLoading(false);
     }
